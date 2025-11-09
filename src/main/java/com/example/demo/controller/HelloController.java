@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HelloController {
 
-    @Autowired
+ /*   @Autowired
     private UserRepository userRepository;
-
+*/
     @RequestMapping("/")
     public String index() {
         return "index";
@@ -22,10 +22,8 @@ public class HelloController {
 
     @PostMapping("/hello")
     public String sayHello(@RequestParam("name") String name, Model model) {
-        User user = new User();
-        user.setName(name);
-        userRepository.save(user);
         model.addAttribute("name", name);
         return "hello";
     }
+
 }
